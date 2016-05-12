@@ -1,0 +1,20 @@
+{
+    "name": "serendipity_hq/monolog_colorful_html_line_formatter",
+    "description": "Formats Monolog's log lines to make them colorful when displayed in HTML.",
+    "license": "MIT",
+    "keywords": ["Monolog","formatter","html","colorful"],
+    "authors": [
+        {
+            "name": "Adamo Aerendir Crespi",
+            "email": "hello@aerendir.me"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SerendipityHQ\\Monolog\\Formatter\\": "src"
+        }
+    }
+}
