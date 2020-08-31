@@ -10,7 +10,7 @@
     <a href="https://github.com/Aerendir/monolog-html-line-formatter/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/monolog-html-line-formatter.svg?style=flat-square"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
     <a href="https://github.com/Aerendir/monolog-html-line-formatter/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/monolog-html-line-formatter?color=%238892BF&style=flat-square&logo=php" /></a>
-    <img title="Tested with Monolog ^2.0" src="https://img.shields.io/badge/Symfony-%5E2.0-333?style=flat-square&logo=php" />
+    <img title="Tested with Monolog ^2.0" src="https://img.shields.io/badge/Monolog-%5E2.0-333?style=flat-square&logo=php" />
 </p>
 
 ## Current Status
