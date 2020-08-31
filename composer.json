@@ -1,20 +1,45 @@
 {
-    "name": "serendipity_hq/monolog_colorful_html_line_formatter",
+    "name": "serendipity_hq/monolog-html-line-formatter",
     "description": "Formats Monolog's log lines to make them colorful when displayed in HTML.",
+    "type": "library",
     "license": "MIT",
     "keywords": ["Monolog","formatter","html","colorful"],
+    "homepage": "https://github.com/Aerendir/monolog-html-line-formatter",
+    "support": {
+        "issues": "https://github.com/Aerendir/monolog-html-line-formatter/issues"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
-            "email": "hello@aerendir.me"
+            "email": "aerendir@serendipityhq.com"
         }
     ],
     "require": {
-        "monolog/monolog": "*"
+        "php": "^7.3",
+        "monolog/monolog": "^2.0",
+        "thecodingmachine/safe": "^1.1"
+    },
+    "require-dev": {
+        "ext-ast": "*",
+        "bamarni/composer-bin-plugin": "^1.4",
+        "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
             "SerendipityHQ\\Monolog\\Formatter\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SerendipityHQ\\Monolog\\Formatter\\": "tests"
+        }
+    },
+    "scripts": {
+        "bin": "echo 'bin not installed'",
+        "post-install-cmd": ["@composer bin all install --ansi"],
+        "post-update-cmd": ["@composer bin all update --ansi"]
     }
 }
