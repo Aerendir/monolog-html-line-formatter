@@ -37,8 +37,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             SetList::ARRAY_STR_FUNCTIONS_TO_STATIC_CALL,
             SetList::CODE_QUALITY,
             SetList::CODING_STYLE,
-            // SetList::NAMING, // Do not use in this library
-            // SetList::ORDER, // Do not use in this library
             SetList::PERFORMANCE,
             SetList::PHP_52,
             SetList::PHP_53,
@@ -83,7 +81,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
             Rector\CodingStyle\Rector\ClassMethod\NewlineBeforeNewAssignSetRector::class,
             Rector\CodingStyle\Rector\ClassMethod\RemoveDoubleUnderscoreInMethodNameRector::class,
             Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
-            Rector\CodingStyle\Rector\Identical\IdenticalFalseToBooleanNotRector::class,
             Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector::class,
             Rector\CodingStyle\Rector\Throw_\AnnotateThrowablesRector::class,
             Rector\CodingStyle\Rector\Use_\RemoveUnusedAliasRector::class,

@@ -4,7 +4,7 @@
         xsi:noNamespaceSchemaLocation="vendor-bin/phpunit/vendor/phpunit/phpunit/phpunit.xsd"
         cacheResultFile="var/cache/"
         colors="true"
-        bootstrap="tests/bootstrap.php"
+        bootstrap="vendor/autoload.php"
 >
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
