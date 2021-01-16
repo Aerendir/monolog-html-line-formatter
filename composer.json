@@ -3,11 +3,8 @@
     "description": "Formats Monolog's log lines to make them colorful when displayed in HTML.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["Monolog","formatter","html","colorful"],
+    "keywords": ["Monolog", "formatter", "html", "colorful"],
     "homepage": "https://github.com/Aerendir/monolog-html-line-formatter",
-    "support": {
-        "issues": "https://github.com/Aerendir/monolog-html-line-formatter/issues"
-    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
@@ -48,7 +45,11 @@
             "rm -R vendor-bin/phpunit/vendor"
         ],
         "bin": "echo 'bin not installed'",
-        "post-install-cmd": ["@composer bin all install --ansi"],
-        "post-update-cmd": ["@composer bin all update --ansi"]
+        "post-install-cmd": [
+            "@composer bin all install --ansi"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi"
+        ]
     }
 }
