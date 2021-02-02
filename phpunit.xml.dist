@@ -4,10 +4,6 @@
     <include>
       <directory suffix=".php">src/</directory>
     </include>
-    <report>
-      <clover outputFile="./var/coverage/clover.xml"/>
-      <html outputDirectory="./var/coverage/html" lowUpperBound="35" highLowerBound="70"/>
-    </report>
   </coverage>
   <php>
     <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
@@ -21,4 +17,7 @@
     </testsuite>
   </testsuites>
   <logging/>
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
+    </listeners>
 </phpunit>
