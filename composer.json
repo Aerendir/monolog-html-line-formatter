@@ -22,7 +22,7 @@
         "rector/rector": "0.9.31",
         "roave/security-advisories": "dev-master",
         "thecodingmachine/phpstan-safe-rule": "1.0.1",
-        "phpstan/phpstan": "0.12.81",
+        "phpstan/phpstan": "0.12.82",
         "phpstan/phpstan-phpunit": "0.12.18"
     },
     "config": {
