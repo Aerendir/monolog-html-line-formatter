@@ -11,7 +11,6 @@ jobs:
                 os: [ ubuntu-latest ]
                 # Do not test on PHP 7.3 as Rector is not installable there
                 php: [ '7.4', '8.0' ]
-                composer-flags: [ '--prefer-stable --prefer-lowest', '' ]
                 symfony: [ '~3.4', '~4.4', '~5.2' ]
 
         steps:
@@ -47,7 +46,7 @@ jobs:
 
             -   name: Install Composer deps
                 run: |
-                    composer update ${{ matrix.composer-flags }} --no-interaction  --no-scripts
+                    composer update --no-interaction  --no-scripts
                     composer bin phpunit update
 
             -   name: Run PHPStan
