@@ -9,9 +9,8 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ ubuntu-latest ]
-                # Do not test on PHP 7.3 as Rector is not installable there
-                php: [ '7.4', '8.0' ]
-                symfony: [ '~3.4', '~4.4', '~5.2' ]
+                php: [ '7.4', '8.0', '8.1' ]
+                symfony: [ '~4.4', '~5.4', '~6.0' ]
 
         steps:
             -   name: Checkout

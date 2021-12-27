@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.6.4@97fe86c4e158b5a57c5150aa5055c38b5a809aab">
-  <file src="src/MonologHtmlLineFormatter.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>MonologHtmlLineFormatter</code>
-    </PropertyNotSetInConstructor>
-  </file>
-</files>
+<files psalm-version="v4.15.0@a1b5e489e6fcebe40cb804793d964e99fc347820"/>
