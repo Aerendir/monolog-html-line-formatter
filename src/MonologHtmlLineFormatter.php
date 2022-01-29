@@ -49,8 +49,6 @@ final class MonologHtmlLineFormatter extends LineFormatter
 
     /**
      * @param array<string,mixed> $record
-     *
-     * @return string
      */
     public function format(array $record): string
     {
