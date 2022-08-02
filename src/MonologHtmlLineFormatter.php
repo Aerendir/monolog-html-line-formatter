@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Monolog HTML Line Formatter.
  *
@@ -49,8 +51,6 @@ final class MonologHtmlLineFormatter extends LineFormatter
 
     /**
      * @param array<string,mixed> $record
-     *
-     * @return string
      */
     public function format(array $record): string
     {
