@@ -44,7 +44,7 @@ final class MonologHtmlLineFormatter extends LineFormatter
     /**
      * @param string|null $dateFormat The format of the timestamp: one supported by DateTime::format
      */
-    public function __construct(?string $dateFormat = null)
+    public function __construct(string $dateFormat = null)
     {
         parent::__construct($dateFormat);
     }
