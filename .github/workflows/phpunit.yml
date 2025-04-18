@@ -66,7 +66,7 @@ jobs:
                     ./vendor-bin/infection/vendor/bin/infection --coverage=./var/coverage --min-msi=100 --min-covered-msi=100
 
             -   name: Upload coverage reports to Codecov
-                if: matrix.php == '8.3' && contains(github.ref, 'dependabot') == false
+                if: matrix.php == '8.3' && contains(github.ref, 'master')
                 uses: codecov/codecov-action@v5
                 env:
                     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
