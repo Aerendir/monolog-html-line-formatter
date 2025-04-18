@@ -52,11 +52,11 @@ jobs:
 
             -   name: Run PHPunit
                 run: |
-                    ./vendor-bin/phpunit/vendor/bin/phpunit --coverage-clover var/coverage/clover.xml --coverage-xml var/coverage/coverage-xml --log-junit var/coverage/junit.xml
+                    ./vendor-bin/phpunit/vendor/bin/phpunit --coverage-clover ./var/coverage/clover.xml --coverage-xml ./var/coverage/coverage-xml --log-junit ./var/coverage/junit.xml
 
             -   name: Run Infection
                 run: |
-                    ./vendor-bin/infection/vendor/bin/infection --coverage var/coverage --min-msi 100 --min-covered-msi 100
+                    ./vendor-bin/infection/vendor/bin/infection --coverage ./var/coverage --min-msi 100 --min-covered-msi 100
 
             -   name: Change paths in clover.xml
                 run: |
