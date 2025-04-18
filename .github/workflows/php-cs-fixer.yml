@@ -15,7 +15,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ ubuntu-latest ]
-                php: [ '7.4' ]
+                php: [ '8.3' ]
 
         steps:
             -   name: Checkout
@@ -40,4 +40,4 @@ jobs:
 
             -   name: Run PHP CS Fixer
                 run: |
-                    ./vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v
+                    composer val:phpcs

@@ -29,7 +29,7 @@ cov: ## Opens the code coverage in the browser
 	open var/coverage/coverage-html/index.html
 
 mut: ## Opens the report of mutations in the browser
-	open var/mutations/index.html
+	open var/mutations.html
 
 ##
 ##Docker:
