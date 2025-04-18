@@ -15,7 +15,6 @@
 
 ## Current Status
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
@@ -30,6 +29,12 @@
 [![PHP CS Fixer](https://github.com/Aerendir/monolog-html-line-formatter/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
 [![Rector](https://github.com/Aerendir/monolog-html-line-formatter/workflows/Rector/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
 
+[![codecov](https://codecov.io/gh/Aerendir/monolog-html-line-formatter/graph/badge.svg?token=xyY68l2ilR)](https://codecov.io/gh/Aerendir/monolog-html-line-formatter)
+
+
+[![CodeCov SunBurst](https://codecov.io/gh/Aerendir/monolog-html-line-formatter/branch/master/graphs/sunburst.svg?token=xyY68l2ilR)](https://codecov.io/gh/Aerendir/monolog-html-line-formatter)
+[![CodeCov Tree](https://codecov.io/gh/Aerendir/monolog-html-line-formatter/branch/master/graphs/tree.svg?token=xyY68l2ilR)](https://codecov.io/gh/Aerendir/monolog-html-line-formatter)
+[![CodeCov I Cicle](https://codecov.io/gh/Aerendir/monolog-html-line-formatter/branch/master/graphs/icicle.svg?token=xyY68l2ilR)](https://codecov.io/gh/Aerendir/monolog-html-line-formatter)
 <hr />
 <h3 align="center">
     <b>Do you like this library?</b><br />
