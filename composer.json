@@ -1,20 +1,25 @@
 {
     "name": "serendipity_hq/monolog-html-line-formatter",
     "description": "Formats Monolog's log lines to make them colorful when displayed in HTML.",
-    "type": "library",
     "license": "MIT",
-    "keywords": ["Monolog", "formatter", "html", "colorful"],
-    "homepage": "https://github.com/Aerendir/monolog-html-line-formatter",
+    "type": "library",
+    "keywords": [
+        "Monolog",
+        "formatter",
+        "html",
+        "colorful"
+    ],
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
             "email": "aerendir@serendipityhq.com"
         }
     ],
+    "homepage": "https://github.com/Aerendir/monolog-html-line-formatter",
     "require": {
-        "php": "^7.4|^8.0",
-        "monolog/monolog": "^2.0 || ^3.0",
-        "thecodingmachine/safe": "^1.3|^2.0"
+        "php": "^8.3",
+        "monolog/monolog": "^3.0",
+        "thecodingmachine/safe": "^2.0"
     },
     "require-dev": {
         "ext-ast": "*",
@@ -26,12 +31,6 @@
         "serendipity_hq/rector-config": "^1.0",
         "thecodingmachine/phpstan-safe-rule": "1.2.0"
     },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "bamarni/composer-bin-plugin": true
-        }
-    },
     "autoload": {
         "psr-4": {
             "SerendipityHQ\\Monolog\\Formatter\\": "src"
@@ -39,28 +38,119 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SerendipityHQ\\Monolog\\Formatter\\": "tests"
+            "SerendipityHQ\\Monolog\\Formatter\\Test\\": "tests"
         }
     },
-    "scripts": {
-        "reset": [
-            "rm -R vendor",
-            "rm -R vendor-bin/phan/vendor",
-            "rm -R vendor-bin/phpcs/vendor",
-            "rm -R vendor-bin/phpstan/vendor",
-            "rm -R vendor-bin/phpunit/vendor"
-        ],
-        "bin": "echo 'bin not installed'",
-        "post-install-cmd": [
-            "@composer bin all install --ansi"
-        ],
-        "post-update-cmd": [
-            "@composer bin all update --ansi"
-        ]
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        },
+        "sort-packages": true
     },
     "extra": {
         "bamarni-bin": {
             "bin-links": false
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@composer bin all install --ansi"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi"
+        ],
+        "bin": "echo 'bin not installed'",
+        "bl": [
+            "@bl:phpstan",
+            "@bl:psalm"
+        ],
+        "bl:phpstan": [
+            "vendor/bin/phpstan analyse --generate-baseline .baseline-phpstan.neon"
+        ],
+        "bl:psalm": [
+            "vendor-bin/phpunit/vendor/bin/psalm --set-baseline=.baseline-psalm.xml"
+        ],
+        "dev:insights": [
+            "./vendor-bin/phpinsights/vendor/bin/phpinsights analyse --composer=./composer.json -v"
+        ],
+        "fix": [
+            "@fix:rector",
+            "@fix:phpcs",
+            "@fix:cn"
+        ],
+        "fix:cn": [
+            "composer bin cn normalize ./../../composer.json --no-scripts --no-update-lock"
+        ],
+        "fix:phpcs": [
+            "vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes -v"
+        ],
+        "fix:rector": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/rector process"
+        ],
+        "reset": [
+            "rm -R vendor",
+            "rm -R vendor-bin/cn/vendor",
+            "rm -R vendor-bin/infection/vendor",
+            "rm -R vendor-bin/phpcs/vendor",
+            "rm -R vendor-bin/phpunit/vendor"
+        ],
+        "test": [
+            "@php vendor-bin/phpunit/vendor/bin/phpunit"
+        ],
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@test --coverage-html var/coverage/coverage-html --coverage-clover var/coverage/clover.xml --coverage-xml var/coverage/coverage-xml --log-junit var/coverage/junit.xml"
+        ],
+        "test:coverage:filter": [
+            "@test:coverage --filter"
+        ],
+        "test:full": [
+            "@test:coverage",
+            "@test:infection"
+        ],
+        "test:infection": [
+            "vendor-bin/infection/vendor/bin/infection --skip-initial-tests --logger-html=./var/mutations.html --coverage=./var/coverage"
+        ],
+        "test:infection:covered": [
+            "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations --only-covered --only-covering-test-cases"
+        ],
+        "test:infection:full": [
+            "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations"
+        ],
+        "val": [
+            "@val:style",
+            "@val:static"
+        ],
+        "val:cn": [
+            "composer bin cn normalize ./../../composer.json --dry-run"
+        ],
+        "val:composer": [
+            "@val:cn",
+            "composer audit",
+            "composer validate --strict --no-check-lock"
+        ],
+        "val:phpcs": [
+            "vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes -v --dry-run"
+        ],
+        "val:phpstan": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "val:psalm": [
+            "vendor-bin/phpunit/vendor/bin/psalm"
+        ],
+        "val:rector": [
+            "vendor/bin/rector process --dry-run"
+        ],
+        "val:static": [
+            "@val:composer",
+            "@val:phpstan",
+            "@val:psalm"
+        ],
+        "val:style": [
+            "@val:rector",
+            "@val:phpcs",
+            "@val:cn"
+        ]
     }
 }

@@ -1,0 +1,10 @@
+{
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.47"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    }
+}

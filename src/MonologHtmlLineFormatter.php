@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace SerendipityHQ\Monolog\Formatter;
 
 use Monolog\Formatter\LineFormatter;
-use Monolog\Logger;
+use Monolog\Level;
+use Monolog\LogRecord;
 
 /**
  * Colorizes incoming records to differentiate them accordingly to their level.
@@ -30,15 +31,15 @@ final class MonologHtmlLineFormatter extends LineFormatter
      *
      * @var string[]
      */
-    private const LOG_LEVELS = [
-        Logger::DEBUG     => '#cccccc',
-        Logger::INFO      => '#468847',
-        Logger::NOTICE    => '#3a87ad',
-        Logger::WARNING   => '#c09853',
-        Logger::ERROR     => '#f0ad4e',
-        Logger::CRITICAL  => '#FF7708',
-        Logger::ALERT     => '#C12A19',
-        Logger::EMERGENCY => '#000000',
+    private const array LOG_LEVELS = [
+        Level::Debug->value     => '#cccccc',
+        Level::Info->value      => '#468847',
+        Level::Notice->value    => '#3a87ad',
+        Level::Warning->value   => '#c09853',
+        Level::Error->value     => '#f0ad4e',
+        Level::Critical->value  => '#FF7708',
+        Level::Alert->value     => '#C12A19',
+        Level::Emergency->value => '#000000',
     ];
 
     /**
@@ -49,12 +50,10 @@ final class MonologHtmlLineFormatter extends LineFormatter
         parent::__construct($dateFormat);
     }
 
-    /**
-     * @param array<string,mixed> $record
-     */
-    public function format(array $record): string
+    #[\Override]
+    public function format(LogRecord $record): string
     {
-        $output = '<span style="color: ' . self::LOG_LEVELS[$record['level']] . '">';
+        $output = '<span style="color: ' . self::LOG_LEVELS[$record->level->value] . '">';
         $output .= parent::format($record);
 
         return $output . '</span>';

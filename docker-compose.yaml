@@ -1,0 +1,11 @@
+services:
+    php:
+        container_name: monolog-html-line-formatter-php
+        build:
+            context: .
+            target: monolog-html-line-formatter-php
+        volumes:
+            - .:/project
+        command: [ "tail", "-f", "/dev/null" ]
+        stdin_open: true   # per tenere aperto lo stdin
+        tty: true          # per abilitare il TTY
