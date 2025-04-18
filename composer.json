@@ -99,24 +99,24 @@
             "@php vendor-bin/phpunit/vendor/bin/phpunit"
         ],
         "test:coverage": [
-          "@putenv XDEBUG_MODE=coverage",
-          "@test --coverage-html var/coverage/coverage-html --coverage-clover var/coverage/clover.xml --coverage-xml var/coverage/coverage-xml --log-junit var/coverage/junit.xml"
+            "@putenv XDEBUG_MODE=coverage",
+            "@test --coverage-html var/coverage/coverage-html --coverage-clover var/coverage/clover.xml --coverage-xml var/coverage/coverage-xml --log-junit var/coverage/junit.xml"
+        ],
+        "test:coverage:filter": [
+            "@test:coverage --filter"
         ],
         "test:full": [
             "@test:coverage",
             "@test:infection"
         ],
-        "test:infection:covered": [
-            "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations --only-covered --only-covering-test-cases"
-        ],
         "test:infection": [
             "vendor-bin/infection/vendor/bin/infection --skip-initial-tests --logger-html=./var/mutations.html --coverage=./var/coverage"
         ],
-      "test:infection:full": [
-        "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations"
-      ],
-        "test:coverage:filter": [
-            "@test:coverage --filter"
+        "test:infection:covered": [
+            "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations --only-covered --only-covering-test-cases"
+        ],
+        "test:infection:full": [
+            "vendor-bin/infection/vendor/bin/infection --logger-html=./var/mutations"
         ],
         "val": [
             "@val:style",
