@@ -50,6 +50,11 @@ jobs:
                 with:
                     working-directory: './vendor-bin/phpunit'
 
+            -   name: Install Composer bin Infection
+                uses: ramsey/composer-install@v3
+                with:
+                    working-directory: './vendor-bin/infection'
+
             -   name: Run PHPunit
                 run: |
                     ./vendor-bin/phpunit/vendor/bin/phpunit --coverage-clover ./var/coverage/clover.xml --coverage-xml ./var/coverage/coverage-xml --log-junit ./var/coverage/junit.xml
