@@ -10,7 +10,7 @@
     <a href="https://github.com/Aerendir/monolog-html-line-formatter/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/monolog-html-line-formatter.svg?style=flat-square"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
     <a href="https://github.com/Aerendir/monolog-html-line-formatter/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/monolog-html-line-formatter?color=%238892BF&style=flat-square&logo=php" /></a>
-    <img title="Tested with Monolog ^2.0" src="https://img.shields.io/badge/Monolog-%5E2.0-333?style=flat-square&logo=php" />
+    <img title="Tested with Monolog ^3.0" src="https://img.shields.io/badge/Monolog-%5E3.0-333?style=flat-square&logo=php" />
 </p>
 
 ## Current Status
@@ -23,7 +23,6 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_monolog-html-line-formatter&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_monolog-html-line-formatter)
 
-[![Phan](https://github.com/Aerendir/monolog-html-line-formatter/workflows/Phan/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
 [![PHPStan](https://github.com/Aerendir/monolog-html-line-formatter/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
 [![PSalm](https://github.com/Aerendir/monolog-html-line-formatter/workflows/PSalm/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
 [![PHPUnit](https://github.com/Aerendir/monolog-html-line-formatter/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/monolog-html-line-formatter/actions?query=branch%3Adev)
@@ -53,10 +52,10 @@ This library follows the http://semver.org/ versioning conventions.
 
 ```php
 // Crate a Monolog Logger
-$logger = new Logger('The name of your Logger');
+$logger = new \Monolog\Logger('The name of your Logger');
 
 try {
-    $handler = new TheHandlerYouChose($logFile, Logger::DEBUG);
+    $handler = new TheHandlerYouChose($logFile, \Monolog\Level::Debug);
     $handler->setFormatter(new MonologHtmlLineFormatter());
 } catch(\Throwable $e) {
     throw $e;
