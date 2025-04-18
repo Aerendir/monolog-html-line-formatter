@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 use Safe\DateTimeImmutable;
 use SerendipityHQ\Monolog\Formatter\MonologHtmlLineFormatter;
 
-class MonologHtmlLineFormatterTest extends TestCase
+final class MonologHtmlLineFormatterTest extends TestCase
 {
     public function testFormatDebugLogLevel(): void
     {

@@ -50,6 +50,7 @@ final class MonologHtmlLineFormatter extends LineFormatter
         parent::__construct($dateFormat);
     }
 
+    #[\Override]
     public function format(LogRecord $record): string
     {
         $output = '<span style="color: ' . self::LOG_LEVELS[$record->level->value] . '">';
