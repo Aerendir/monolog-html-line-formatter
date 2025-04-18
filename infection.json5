@@ -6,7 +6,7 @@
         ]
     },
     "phpUnit": {
-        "customPath": "/project/vendor-bin/phpunit/vendor/bin/phpunit"
+        "customPath": "./vendor-bin/phpunit/vendor/bin/phpunit"
     },
     "mutators": {
         "@default": true
