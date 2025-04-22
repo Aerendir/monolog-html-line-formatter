@@ -65,6 +65,13 @@ jobs:
                 run: |
                     ./vendor-bin/infection/vendor/bin/infection --coverage=./var/coverage --min-msi=100 --min-covered-msi=100
 
+            - name: Upload test results to Codecov
+              if: ${{ !cancelled() }}
+              uses: codecov/test-results-action@v1
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  flags: ${{matrix.symfony}},${{matrix.php}}
+
             -   name: Upload coverage reports to Codecov
                 if: matrix.php == '8.3' && contains(github.ref, 'master')
                 uses: codecov/codecov-action@v5
