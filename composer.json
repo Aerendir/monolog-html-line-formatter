@@ -64,6 +64,12 @@
             "@bl:phpstan",
             "@bl:psalm"
         ],
+      "matrix:compare": [
+            "vendor-bin/matrix/vendor/bin/github-actions-matrix compare"
+        ],
+      "matrix:sync": [
+        "vendor-bin/matrix/vendor/bin/github-actions-matrix sync"
+      ],
         "bl:phpstan": [
             "vendor/bin/phpstan analyse --generate-baseline .baseline-phpstan.neon"
         ],
