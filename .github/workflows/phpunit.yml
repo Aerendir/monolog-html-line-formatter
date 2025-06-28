@@ -23,7 +23,7 @@ jobs:
                 uses: actions/checkout@v4
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.32.0
+                uses: shivammathur/setup-php@2.34.1
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: pcov
@@ -65,6 +65,13 @@ jobs:
                 run: |
                     ./vendor-bin/infection/vendor/bin/infection --coverage=./var/coverage --min-msi=100 --min-covered-msi=100
 
+            - name: Upload test results to Codecov
+              if: ${{ !cancelled() }}
+              uses: codecov/test-results-action@v1
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  flags: ${{matrix.symfony}},${{matrix.php}}
+
             -   name: Upload coverage reports to Codecov
                 if: matrix.php == '8.3' && contains(github.ref, 'master')
                 uses: codecov/codecov-action@v5
@@ -74,3 +81,15 @@ jobs:
                     fail_ci_if_error: false
                     verbose: true
                     files: ./var/coverage/clover.xml
+
+            -   name: Change paths in clover.xml
+                run: |
+                    sed -i 's+/home/runner/work/monolog-html-line-formatter/monolog-html-line-formatter+/github/workspace+g' ./var/coverage/clover.xml
+
+            -   name: Sonarcloud
+                if: |
+                    github.ref == 'refs/heads/dev' && matrix.php == '8.3'
+                uses: SonarSource/sonarqube-scan-action@v5.2.0
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

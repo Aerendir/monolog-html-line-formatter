@@ -88,6 +88,12 @@
             "Composer\\Config::disableProcessTimeout",
             "vendor/bin/rector process"
         ],
+        "matrix:compare": [
+            "vendor-bin/matrix/vendor/bin/github-actions-matrix compare"
+        ],
+        "matrix:sync": [
+            "vendor-bin/matrix/vendor/bin/github-actions-matrix sync"
+        ],
         "reset": [
             "rm -R vendor",
             "rm -R vendor-bin/cn/vendor",
