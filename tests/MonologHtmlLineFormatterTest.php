@@ -16,7 +16,6 @@ namespace SerendipityHQ\Monolog\Formatter\Test;
 use Monolog\Level;
 use Monolog\LogRecord;
 use PHPUnit\Framework\TestCase;
-use Safe\DateTimeImmutable;
 use SerendipityHQ\Monolog\Formatter\MonologHtmlLineFormatter;
 
 final class MonologHtmlLineFormatterTest extends TestCase
@@ -24,7 +23,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatDebugLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'debug_channel',
@@ -43,7 +42,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatInfoLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'info_channel',
@@ -62,7 +61,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatWarningLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'warning_channel',
@@ -81,7 +80,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatErrorLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'error_channel',
@@ -100,7 +99,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatCriticalLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'critical_channel',
@@ -119,7 +118,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatAlertLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'alert_channel',
@@ -138,7 +137,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatEmergencyLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'emergency_channel',
@@ -157,7 +156,7 @@ final class MonologHtmlLineFormatterTest extends TestCase
     public function testFormatNoticeLogLevel(): void
     {
         $formatter = new MonologHtmlLineFormatter();
-        $dateTime  = new DateTimeImmutable('2025-04-18 09:26:40');
+        $dateTime  = new \DateTimeImmutable('2025-04-18 09:26:40');
         $record    = new LogRecord(
             $dateTime,
             'notice_channel',
