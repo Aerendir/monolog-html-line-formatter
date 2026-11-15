@@ -27,7 +27,7 @@
         "phpstan/phpstan-phpunit": "1.4.0",
         "rector/rector": "1.1.1",
         "roave/security-advisories": "dev-master",
-        "serendipity_hq/rector-config": "^1.0"
+        "serendipity_hq/rector-config": "1.1.13"
     },
     "autoload": {
         "psr-4": {
