@@ -41,17 +41,17 @@ jobs:
                     key: php-composer-dependencies-cache
 
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     composer-options: --no-scripts
 
             -   name: Install Composer bin PHPUnit
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     working-directory: './vendor-bin/phpunit'
 
             -   name: Install Composer bin Infection
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     working-directory: './vendor-bin/infection'
 
