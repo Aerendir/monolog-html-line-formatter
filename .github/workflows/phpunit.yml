@@ -16,7 +16,8 @@ jobs:
             matrix:
                 os: [ ubuntu-latest ]
                 # When you change a version here, change it also in the SonarCloud if condition
-                php: [ '8.3', '8.4' ]
+                php: [ '8.3', '8.4', '8.5' ]
+                dependency-versions: [ lowest, highest ]
 
         steps:
             -   name: Checkout
@@ -32,7 +33,7 @@ jobs:
             -   name: Get Composer Cache Directory
                 id: composer-cache
                 run: |
-                    echo "::set-output name=dir::$(composer config cache-files-dir)"
+                    echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
             -   name: Cache Composer's dependencies
                 uses: actions/cache@v4
@@ -44,6 +45,14 @@ jobs:
                 uses: ramsey/composer-install@v3
                 with:
                     composer-options: --no-scripts
+
+            -   name: Update Composer deps
+                run: |
+                    if [ "${{ matrix.dependency-versions }}" == "lowest" ]; then
+                        composer update --no-interaction --no-scripts --prefer-lowest
+                    else
+                        composer update --no-interaction --no-scripts
+                    fi
 
             -   name: Install Composer bin PHPUnit
                 uses: ramsey/composer-install@v3
@@ -61,7 +70,7 @@ jobs:
 
             -   name: Run Infection
                 if: |
-                    matrix.php == '8.3'
+                    matrix.php == '8.3' && matrix.dependency-versions == 'highest'
                 run: |
                     ./vendor-bin/infection/vendor/bin/infection --coverage=./var/coverage --min-msi=100 --min-covered-msi=100
 
@@ -70,10 +79,10 @@ jobs:
               uses: codecov/test-results-action@v1
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
-                  flags: ${{matrix.symfony}},${{matrix.php}}
+                  flags: ${{matrix.php}},${{matrix.dependency-versions}}
 
             -   name: Upload coverage reports to Codecov
-                if: matrix.php == '8.3' && contains(github.ref, 'master')
+                if: matrix.php == '8.3' && matrix.dependency-versions == 'highest' && contains(github.ref, 'master')
                 uses: codecov/codecov-action@v5
                 env:
                     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
